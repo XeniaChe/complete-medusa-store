@@ -5,7 +5,7 @@ export default async function handleStripePayIntedSuccess({
   data,
   eventName,
   container,
-  pluginOptionshttps://github.com/XeniaChe/complete-medusa-store.git
+  pluginOptions
 }: SubscriberArgs<Record<string, string>>) {
   try {
     const sendGrid = container.resolve('sendgridService');
