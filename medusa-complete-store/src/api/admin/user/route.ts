@@ -14,6 +14,8 @@ export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
 
 export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
   try {
+    const logUser = req.scope.resolve('loggedInUser'); // Tesing registered in dep. container LoggedInUser
+    console.log({ logUser });
     await listUsers(req, res);
   } catch (error) {
     throw new MedusaError(MedusaError.Types.NOT_FOUND, error.message);
