@@ -1,4 +1,6 @@
 const express = require('express');
+import 'reflect-metadata';
+
 const { GracefulShutdownServer } = require('medusa-core-utils');
 
 const loaders = require('@medusajs/medusa/dist/loaders/index').default;
