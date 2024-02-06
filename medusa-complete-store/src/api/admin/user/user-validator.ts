@@ -4,4 +4,6 @@ import { IsString } from 'class-validator';
 export class AdminCreateUserRequest extends MedusaAdminCreateUserRequest {
   @IsString()
   store_id: string;
+  @IsString()
+  role_id: string;
 }
