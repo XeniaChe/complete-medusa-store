@@ -6,7 +6,7 @@ import { Role } from './role';
 @Entity()
 export class User extends MedusaUser {
   @Index('UserStoreId')
-  @Column({ nullable: true, unique: true })
+  @Column({ nullable: true })
   store_id?: string;
 
   @ManyToOne(() => Store, (store) => store.members)
@@ -18,6 +18,6 @@ export class User extends MedusaUser {
   teamRole: Role | null;
 
   @Index()
-  @Column({ nullable: true, unique: true })
+  @Column({ nullable: true })
   role_id: string | null;
 }
