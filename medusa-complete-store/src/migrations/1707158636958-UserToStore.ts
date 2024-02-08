@@ -8,8 +8,7 @@ export class UserToStore1707158636958 implements MigrationInterface {
       new TableColumn({
         name: 'store_id',
         type: 'character varying',
-        isNullable: true,
-        isUnique: true
+        isNullable: true
       })
     );
 

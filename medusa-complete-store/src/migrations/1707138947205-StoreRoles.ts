@@ -27,6 +27,17 @@ export class StoreRoles1707138947205 implements MigrationInterface {
             name: 'metadata',
             type: 'jsonb',
             isNullable: true
+          },
+          {
+            name: 'created_at',
+            type: 'timestamp',
+            default: 'now()'
+          },
+          {
+            name: 'updated_at',
+            type: 'timestamp',
+            default: 'now()',
+            onUpdate: 'now()'
           }
         ]
       })
@@ -40,6 +51,7 @@ export class StoreRoles1707138947205 implements MigrationInterface {
           {
             name: 'id',
             type: 'varchar',
+            // isGenerated: true,
             isPrimary: true
           },
           {
@@ -49,8 +61,19 @@ export class StoreRoles1707138947205 implements MigrationInterface {
           {
             name: 'store_id',
             type: 'varchar',
-            isUnique: true,
-            isNullable: true
+            isNullable: true,
+            isUnique: true
+          },
+          {
+            name: 'created_at',
+            type: 'timestamp',
+            default: 'now()'
+          },
+          {
+            name: 'updated_at',
+            type: 'timestamp',
+            default: 'now()',
+            onUpdate: 'now()'
           }
         ]
       }),
@@ -154,6 +177,7 @@ export class StoreRoles1707138947205 implements MigrationInterface {
       (fk) => fk.columnNames.indexOf('role_id') !== -1
     );
     if (fkStoreToRole) await queryRunner.dropForeignKey('store', fkStoreToRole);
+    await queryRunner.dropColumn('store', 'role_id');
 
     // USER-ROLE
     const tableUser = await queryRunner.getTable('user');
